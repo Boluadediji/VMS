@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>Visitor Access Control</title>
+
+</head>
+
+<body>
+
+    <h1>Welcome to Visitor Access Control System</h1>
+
+    <p>Click the button below to request access:</p>
+
+    <button id="grant-access-btn" onclick="requestAccess()">Grant Access</button>
+
+
+
+    <script>
+
+        function requestAccess() {
+
+            // Send a request to the server to grant access
+
+            fetch('/open_door')
+
+                .then(response => {
+
+                    if (response.ok) {
+
+                        // Access granted
+
+                        alert("Access granted!");
+
+                    } else {
+
+                        // Error or access denied
+
+                        alert("Access denied!");
+
+                    }
+
+                })
+
+                .catch(error => {
+
+                    // Error occurred
+
+                    console.error("Error requesting access:", error);
+
+                    alert("Error requesting access. Please try again later.");
+
+                });
+
+        }
+
+    </script>
+
+</body>
+
+</html>
+
